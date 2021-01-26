@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		63579FFA25C0BD2C006FDCD3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63579FF925C0BD2C006FDCD3 /* AppDelegate.swift */; };
 		63579FFC25C0BD2C006FDCD3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63579FFB25C0BD2C006FDCD3 /* SceneDelegate.swift */; };
-		63579FFE25C0BD2C006FDCD3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63579FFD25C0BD2C006FDCD3 /* ViewController.swift */; };
 		6357A00125C0BD2C006FDCD3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63579FFF25C0BD2C006FDCD3 /* Main.storyboard */; };
 		6357A00325C0BD2F006FDCD3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6357A00225C0BD2F006FDCD3 /* Assets.xcassets */; };
 		6357A00625C0BD2F006FDCD3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6357A00425C0BD2F006FDCD3 /* LaunchScreen.storyboard */; };
@@ -38,7 +37,6 @@
 		63579FF625C0BD2C006FDCD3 /* GiphySearchApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GiphySearchApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63579FF925C0BD2C006FDCD3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		63579FFB25C0BD2C006FDCD3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		63579FFD25C0BD2C006FDCD3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		6357A00025C0BD2C006FDCD3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6357A00225C0BD2F006FDCD3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6357A00525C0BD2F006FDCD3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -101,7 +99,6 @@
 			children = (
 				63579FF925C0BD2C006FDCD3 /* AppDelegate.swift */,
 				63579FFB25C0BD2C006FDCD3 /* SceneDelegate.swift */,
-				63579FFD25C0BD2C006FDCD3 /* ViewController.swift */,
 				63579FFF25C0BD2C006FDCD3 /* Main.storyboard */,
 				6357A00225C0BD2F006FDCD3 /* Assets.xcassets */,
 				6357A00425C0BD2F006FDCD3 /* LaunchScreen.storyboard */,
@@ -258,7 +255,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				63579FFE25C0BD2C006FDCD3 /* ViewController.swift in Sources */,
 				63579FFA25C0BD2C006FDCD3 /* AppDelegate.swift in Sources */,
 				63579FFC25C0BD2C006FDCD3 /* SceneDelegate.swift in Sources */,
 			);
@@ -439,6 +435,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2G876RW9RP;
 				INFOPLIST_FILE = GiphySearchApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -458,6 +455,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2G876RW9RP;
 				INFOPLIST_FILE = GiphySearchApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
