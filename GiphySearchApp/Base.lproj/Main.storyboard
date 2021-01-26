@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Giphy Search Collection View Controller-->
+        <!--Giphy Search List View Controller-->
         <scene sceneID="0Vo-yJ-66i">
             <objects>
-                <viewController id="f0I-LB-XGb" customClass="GiphySearchCollectionViewController" customModule="GiphySearchApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GiphySearchListViewControllerId" id="f0I-LB-XGb" customClass="GiphySearchListViewController" customModule="GiphySearchApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xN3-Ca-lzT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -44,6 +44,7 @@
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo.on.rectangle.angled" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="WRu-zB-ZgR">
                                                     <rect key="frame" x="0.0" y="-1" width="128" height="129"/>
+                                                    <color key="tintColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </imageView>
                                             </subviews>
                                             <constraints>

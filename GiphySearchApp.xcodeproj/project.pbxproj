@@ -16,6 +16,10 @@
 		6357A01C25C0BD2F006FDCD3 /* GiphySearchAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6357A01B25C0BD2F006FDCD3 /* GiphySearchAppUITests.swift */; };
 		6357A03325C0BEDF006FDCD3 /* GiphySearchCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6357A03225C0BEDF006FDCD3 /* GiphySearchCollectionViewController.swift */; };
 		6357A03825C0C3A9006FDCD3 /* GiphySearchCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6357A03725C0C3A9006FDCD3 /* GiphySearchCollectionCell.swift */; };
+		6357A03E25C0D413006FDCD3 /* ModuleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6357A03D25C0D413006FDCD3 /* ModuleFactory.swift */; };
+		6357A04925C0D4C0006FDCD3 /* GiphySearchListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6357A04825C0D4C0006FDCD3 /* GiphySearchListPresenter.swift */; };
+		6357A05425C0D5F2006FDCD3 /* FlowFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6357A05325C0D5F2006FDCD3 /* FlowFactory.swift */; };
+		6357A05A25C0D694006FDCD3 /* FlowGiphySearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6357A05925C0D694006FDCD3 /* FlowGiphySearch.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +55,10 @@
 		6357A01D25C0BD2F006FDCD3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6357A03225C0BEDF006FDCD3 /* GiphySearchCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiphySearchCollectionViewController.swift; sourceTree = "<group>"; };
 		6357A03725C0C3A9006FDCD3 /* GiphySearchCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiphySearchCollectionCell.swift; sourceTree = "<group>"; };
+		6357A03D25C0D413006FDCD3 /* ModuleFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleFactory.swift; sourceTree = "<group>"; };
+		6357A04825C0D4C0006FDCD3 /* GiphySearchListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiphySearchListPresenter.swift; sourceTree = "<group>"; };
+		6357A05325C0D5F2006FDCD3 /* FlowFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowFactory.swift; sourceTree = "<group>"; };
+		6357A05925C0D694006FDCD3 /* FlowGiphySearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowGiphySearch.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,14 +109,13 @@
 		63579FF825C0BD2C006FDCD3 /* GiphySearchApp */ = {
 			isa = PBXGroup;
 			children = (
-				63579FF925C0BD2C006FDCD3 /* AppDelegate.swift */,
-				63579FFB25C0BD2C006FDCD3 /* SceneDelegate.swift */,
-				63579FFF25C0BD2C006FDCD3 /* Main.storyboard */,
-				6357A00225C0BD2F006FDCD3 /* Assets.xcassets */,
-				6357A00425C0BD2F006FDCD3 /* LaunchScreen.storyboard */,
+				6357A05F25C0D81E006FDCD3 /* App */,
+				6357A05825C0D66F006FDCD3 /* Flows */,
+				6357A03C25C0D3F9006FDCD3 /* Modules */,
 				6357A00725C0BD2F006FDCD3 /* Info.plist */,
-				6357A03225C0BEDF006FDCD3 /* GiphySearchCollectionViewController.swift */,
-				6357A03725C0C3A9006FDCD3 /* GiphySearchCollectionCell.swift */,
+				6357A00225C0BD2F006FDCD3 /* Assets.xcassets */,
+				63579FFF25C0BD2C006FDCD3 /* Main.storyboard */,
+				6357A00425C0BD2F006FDCD3 /* LaunchScreen.storyboard */,
 			);
 			path = GiphySearchApp;
 			sourceTree = "<group>";
@@ -129,6 +136,59 @@
 				6357A01D25C0BD2F006FDCD3 /* Info.plist */,
 			);
 			path = GiphySearchAppUITests;
+			sourceTree = "<group>";
+		};
+		6357A03C25C0D3F9006FDCD3 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				6357A03D25C0D413006FDCD3 /* ModuleFactory.swift */,
+				6357A04525C0D44B006FDCD3 /* GiphySearchList */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		6357A04525C0D44B006FDCD3 /* GiphySearchList */ = {
+			isa = PBXGroup;
+			children = (
+				6357A04725C0D4A8006FDCD3 /* Presenter */,
+				6357A04625C0D45A006FDCD3 /* Views */,
+			);
+			path = GiphySearchList;
+			sourceTree = "<group>";
+		};
+		6357A04625C0D45A006FDCD3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6357A03225C0BEDF006FDCD3 /* GiphySearchCollectionViewController.swift */,
+				6357A03725C0C3A9006FDCD3 /* GiphySearchCollectionCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		6357A04725C0D4A8006FDCD3 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				6357A04825C0D4C0006FDCD3 /* GiphySearchListPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		6357A05825C0D66F006FDCD3 /* Flows */ = {
+			isa = PBXGroup;
+			children = (
+				6357A05325C0D5F2006FDCD3 /* FlowFactory.swift */,
+				6357A05925C0D694006FDCD3 /* FlowGiphySearch.swift */,
+			);
+			path = Flows;
+			sourceTree = "<group>";
+		};
+		6357A05F25C0D81E006FDCD3 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				63579FFB25C0BD2C006FDCD3 /* SceneDelegate.swift */,
+				63579FF925C0BD2C006FDCD3 /* AppDelegate.swift */,
+			);
+			path = App;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -263,8 +323,12 @@
 			files = (
 				63579FFA25C0BD2C006FDCD3 /* AppDelegate.swift in Sources */,
 				6357A03825C0C3A9006FDCD3 /* GiphySearchCollectionCell.swift in Sources */,
+				6357A05425C0D5F2006FDCD3 /* FlowFactory.swift in Sources */,
+				6357A03E25C0D413006FDCD3 /* ModuleFactory.swift in Sources */,
 				6357A03325C0BEDF006FDCD3 /* GiphySearchCollectionViewController.swift in Sources */,
+				6357A04925C0D4C0006FDCD3 /* GiphySearchListPresenter.swift in Sources */,
 				63579FFC25C0BD2C006FDCD3 /* SceneDelegate.swift in Sources */,
+				6357A05A25C0D694006FDCD3 /* FlowGiphySearch.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

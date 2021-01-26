@@ -1,5 +1,5 @@
 //
-//  GiphySearchCollectionViewController.swift
+//  GiphySearchListViewController.swift
 //  GiphySearchApp
 //
 //  Created by Murat Sudan on 26/01/2021.
@@ -9,7 +9,7 @@ import UIKit
 
 private let reuseIdentifier = "GiphySearchCollectionCellId"
 
-class GiphySearchCollectionViewController: UIViewController {
+class GiphySearchListViewController: UIViewController {
 	
 	//IBOutlets
 	@IBOutlet weak var collectionView: UICollectionView!
@@ -21,7 +21,7 @@ class GiphySearchCollectionViewController: UIViewController {
 
 
 // MARK: UICollectionViewDataSource
-extension GiphySearchCollectionViewController: UICollectionViewDataSource {
+extension GiphySearchListViewController: UICollectionViewDataSource {
 	
 	func numberOfSections(in collectionView: UICollectionView) -> Int {
 		// #warning Incomplete implementation, return the number of sections
@@ -40,7 +40,7 @@ extension GiphySearchCollectionViewController: UICollectionViewDataSource {
 }
 
 //MARK: - UIViewCollectionFlowLayoutDelegate
-extension GiphySearchCollectionViewController: UICollectionViewDelegateFlowLayout {
+extension GiphySearchListViewController: UICollectionViewDelegateFlowLayout {
 	
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 		return CGSize(width: (self.view.frame.width/2.0 - 16), height: 90.0)
