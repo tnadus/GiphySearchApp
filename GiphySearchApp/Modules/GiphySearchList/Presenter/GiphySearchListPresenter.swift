@@ -29,8 +29,7 @@ protocol GiphySearchListPresenterProtocol: class {
 }
 
 protocol GiphySearchListNavigatorProtocol {
-	var onSuccessScreen: (() -> Void)? { get set }
-	var onError: ((Error) -> Void)? { get set }
+	var onDetailScreen: (() -> Void)? { get set }
 }
 
 class GiphySearchListPresenter: GiphySearchListNavigatorProtocol {
@@ -54,8 +53,7 @@ class GiphySearchListPresenter: GiphySearchListNavigatorProtocol {
 
 	
 	//navigation
-	var onSuccessScreen: (() -> Void)?
-	var onError: ((Error) -> Void)?
+	var onDetailScreen: (() -> Void)?
 	
 	public init(giphyAPIClient: GiphyAPIClientProtocol = GiphyAPIClient()) {
 		self.giphyAPIClient = giphyAPIClient

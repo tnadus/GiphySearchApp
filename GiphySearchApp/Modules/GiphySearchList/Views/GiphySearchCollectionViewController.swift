@@ -7,15 +7,18 @@
 
 import UIKit
 
-private let reuseIdentifier = "GiphySearchCollectionCellId"
-
 class GiphySearchListViewController: UIViewController {
+	
+	//Constants
+	private enum Constants {
+		static let reuseIdentifier = "GiphySearchCollectionCellId"
+	}
 	
 	//IBOutlets
 	@IBOutlet weak var collectionView: UICollectionView!
 	@IBOutlet weak var searchBar: UISearchBar!
 	@IBOutlet weak var spinner: UIActivityIndicatorView!
-	
+		
 	//Properties
 	var presenter: GiphySearchListPresenterProtocol!
 	private var giphys = [Giphy]()
@@ -35,7 +38,6 @@ class GiphySearchListViewController: UIViewController {
 // MARK: UISearchBarDelegate
 extension GiphySearchListViewController: UISearchBarDelegate {
 	func searchBarSearchButtonClicked(_ searchBar: UISearchBar)  {
-		print(searchBar.text)
 		presenter.search(term: searchBar.text)
 	}
 	
@@ -49,7 +51,7 @@ extension GiphySearchListViewController: UISearchBarDelegate {
 	}
 }
 
-// MARK: UICollectionViewDataSource
+// MARK: GiphySearchListViewProtocol
 extension GiphySearchListViewController: GiphySearchListViewProtocol {
 		
 	func updateTexts(barTitle: String, placeholderText: String) {
@@ -95,7 +97,7 @@ extension GiphySearchListViewController: UICollectionViewDataSource {
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-		guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? GiphySearchCollectionCell else { return UICollectionViewCell() }
+		guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.reuseIdentifier, for: indexPath) as? GiphySearchCollectionCell else { return UICollectionViewCell() }
 
 		let giphy = giphys[indexPath.row]
 		cell.representedIdentifier = giphy.id
