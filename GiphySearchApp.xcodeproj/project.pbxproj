@@ -47,6 +47,8 @@
 		6357A15225C1D5D4006FDCD3 /* ModuleFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6357A15125C1D5D4006FDCD3 /* ModuleFactoryTests.swift */; };
 		6357A15E25C1D6F5006FDCD3 /* FlowFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6357A15D25C1D6F5006FDCD3 /* FlowFactoryTests.swift */; };
 		6357A16325C1D766006FDCD3 /* FlowGiphySearchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6357A16225C1D766006FDCD3 /* FlowGiphySearchTests.swift */; };
+		6357A16925C1D9F0006FDCD3 /* JsonParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6357A16825C1D9F0006FDCD3 /* JsonParserTests.swift */; };
+		6357A17B25C1DC19006FDCD3 /* ImageParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6357A17A25C1DC19006FDCD3 /* ImageParserTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +115,8 @@
 		6357A15125C1D5D4006FDCD3 /* ModuleFactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleFactoryTests.swift; sourceTree = "<group>"; };
 		6357A15D25C1D6F5006FDCD3 /* FlowFactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowFactoryTests.swift; sourceTree = "<group>"; };
 		6357A16225C1D766006FDCD3 /* FlowGiphySearchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowGiphySearchTests.swift; sourceTree = "<group>"; };
+		6357A16825C1D9F0006FDCD3 /* JsonParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonParserTests.swift; sourceTree = "<group>"; };
+		6357A17A25C1DC19006FDCD3 /* ImageParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageParserTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +185,8 @@
 				6357A11625C1C2D6006FDCD3 /* Mocks */,
 				6357A15925C1D5DE006FDCD3 /* Flows */,
 				6357A10F25C1C1A2006FDCD3 /* Modules */,
+				6357A16725C1D9BA006FDCD3 /* Parsers */,
+				6357A17025C1DA93006FDCD3 /* resource */,
 				6357A01225C0BD2F006FDCD3 /* Info.plist */,
 			);
 			path = GiphySearchAppTests;
@@ -253,7 +259,7 @@
 			isa = PBXGroup;
 			children = (
 				6357A0AE25C0FB3F006FDCD3 /* Dto */,
-				6357A07425C0E27F006FDCD3 /* Parser */,
+				6357A07425C0E27F006FDCD3 /* Parsers */,
 				6357A07325C0E266006FDCD3 /* Network */,
 			);
 			path = Service;
@@ -269,14 +275,14 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
-		6357A07425C0E27F006FDCD3 /* Parser */ = {
+		6357A07425C0E27F006FDCD3 /* Parsers */ = {
 			isa = PBXGroup;
 			children = (
 				6357A07A25C0E83E006FDCD3 /* Parser.swift */,
 				6357A07F25C0E89E006FDCD3 /* JsonParser.swift */,
 				6357A08425C0E992006FDCD3 /* ImageParser.swift */,
 			);
-			path = Parser;
+			path = Parsers;
 			sourceTree = "<group>";
 		};
 		6357A09725C0EBD8006FDCD3 /* Requests */ = {
@@ -390,6 +396,22 @@
 				6357A16225C1D766006FDCD3 /* FlowGiphySearchTests.swift */,
 			);
 			path = Flows;
+			sourceTree = "<group>";
+		};
+		6357A16725C1D9BA006FDCD3 /* Parsers */ = {
+			isa = PBXGroup;
+			children = (
+				6357A16825C1D9F0006FDCD3 /* JsonParserTests.swift */,
+				6357A17A25C1DC19006FDCD3 /* ImageParserTests.swift */,
+			);
+			path = Parsers;
+			sourceTree = "<group>";
+		};
+		6357A17025C1DA93006FDCD3 /* resource */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = resource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -559,8 +581,10 @@
 				6357A11B25C1CB34006FDCD3 /* GiphySearchListViewControllerTests.swift in Sources */,
 				6357A11225C1C1D5006FDCD3 /* GiphySearchListPresenterTests.swift in Sources */,
 				6357A12A25C1CBB8006FDCD3 /* GiphyMock.swift in Sources */,
+				6357A16925C1D9F0006FDCD3 /* JsonParserTests.swift in Sources */,
 				6357A15225C1D5D4006FDCD3 /* ModuleFactoryTests.swift in Sources */,
 				6357A16325C1D766006FDCD3 /* FlowGiphySearchTests.swift in Sources */,
+				6357A17B25C1DC19006FDCD3 /* ImageParserTests.swift in Sources */,
 				6357A13E25C1D170006FDCD3 /* GiphyDetailMock.swift in Sources */,
 				6357A15E25C1D6F5006FDCD3 /* FlowFactoryTests.swift in Sources */,
 				6357A14325C1D2AE006FDCD3 /* GiphyDetailViewControllerTests.swift in Sources */,
