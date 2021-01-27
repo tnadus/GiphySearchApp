@@ -34,9 +34,11 @@ class GiphySearchListPresenter: GiphySearchListPresenterProtocol
 		static let barTitle = NSLocalizedString("Giphy Search App", comment: "screen title")
 		static let placeholderText = NSLocalizedString("Enter anything to search", comment: "search bar placeholder text")
 		
-		enum alert {
+		enum alertError {
 			static let title = NSLocalizedString("Error occured", comment: "error alert title")
-			static let body = NSLocalizedString("Something went wrong", comment: "error alert body text")
+			static let bodyDefault = NSLocalizedString("Something went wrong", comment: "default error alert body text")
+			static let bodyServer = NSLocalizedString("Connection failed", comment: "server error alert body text")
+			static let bodyFormat = NSLocalizedString("Data invalid", comment: "data format error alert body text")
 		}
 	}
 	
@@ -64,17 +66,19 @@ class GiphySearchListPresenter: GiphySearchListPresenterProtocol
 			case .success(let giphyResponse):
 				print(giphyResponse)
 			case .failure(let error):
-				let  title, body: String
+				let  title = Constants.alertError.title
+				let body: String
 				switch error {
-				case .serverError(let statusCode):
-					title = 
+				case .serverError(_):
+					body = Constants.alertError.bodyServer
 				case .formatError:
-					
+					body = Constants.alertError.bodyFormat
 				default:
 					
+					body = Constants.alertError.bodyDefault
 				}
-				self?.managedView?.showAlert(title: Constants.alert.title,
-									   body: Constants.alert.body)
+				self?.managedView?.showAlert(title: title,
+									   body: body)
 			}
 		}
 	}
