@@ -19,6 +19,7 @@ class ModuleFactory {
 		
 		let vc = UIStoryboard(name: Constants.mainBundle, bundle: nil).instantiateViewController(identifier: Constants.giphySearchListId) as GiphySearchListViewController
 		let presenter = GiphySearchListPresenter()
+		vc.presenter = presenter
 		return (vc, presenter)
 	}
 	

@@ -23,7 +23,10 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="qvf-DX-PM4"/>
                                 </constraints>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                                <connections>
+                                    <outlet property="delegate" destination="f0I-LB-XGb" id="W7e-pT-h6J"/>
+                                </connections>
                             </searchBar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="qgY-Xl-YD5">
                                 <rect key="frame" x="0.0" y="44" width="414" height="730"/>
@@ -64,14 +67,20 @@
                                     <outlet property="delegate" destination="f0I-LB-XGb" id="U8a-ia-Gls"/>
                                 </connections>
                             </collectionView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="eyf-nN-CB8">
+                                <rect key="frame" x="188.5" y="385.5" width="37" height="37"/>
+                                <color key="color" systemColor="linkColor"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="7jA-RS-xIM"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="qgY-Xl-YD5" firstAttribute="leading" secondItem="7jA-RS-xIM" secondAttribute="leading" id="GcM-PM-UkX"/>
+                            <constraint firstItem="eyf-nN-CB8" firstAttribute="centerY" secondItem="xN3-Ca-lzT" secondAttribute="centerY" id="Y5T-F3-TIQ"/>
                             <constraint firstItem="hzx-v0-dnN" firstAttribute="leading" secondItem="7jA-RS-xIM" secondAttribute="leading" id="ZOL-Zl-xIN"/>
                             <constraint firstItem="hzx-v0-dnN" firstAttribute="trailing" secondItem="7jA-RS-xIM" secondAttribute="trailing" id="hVF-ot-4iY"/>
                             <constraint firstItem="qgY-Xl-YD5" firstAttribute="top" secondItem="hzx-v0-dnN" secondAttribute="bottom" id="jh4-5L-CSe"/>
+                            <constraint firstItem="eyf-nN-CB8" firstAttribute="centerX" secondItem="xN3-Ca-lzT" secondAttribute="centerX" id="ucj-Ze-Act"/>
                             <constraint firstItem="qgY-Xl-YD5" firstAttribute="trailing" secondItem="7jA-RS-xIM" secondAttribute="trailing" id="wEG-aG-EvQ"/>
                             <constraint firstItem="qgY-Xl-YD5" firstAttribute="bottom" secondItem="7jA-RS-xIM" secondAttribute="bottom" id="x8g-e2-xGA"/>
                             <constraint firstItem="hzx-v0-dnN" firstAttribute="top" secondItem="7jA-RS-xIM" secondAttribute="top" id="xtb-1k-Jtj"/>
@@ -81,6 +90,8 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
                         <outlet property="collectionView" destination="qgY-Xl-YD5" id="EQr-EW-W4b"/>
+                        <outlet property="searchBar" destination="hzx-v0-dnN" id="LiU-hj-e5r"/>
+                        <outlet property="spinner" destination="eyf-nN-CB8" id="HPh-dl-UEJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Baw-eg-Ksw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -108,6 +119,9 @@
     </scenes>
     <resources>
         <image name="photo.on.rectangle.angled" catalog="system" width="128" height="101"/>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
