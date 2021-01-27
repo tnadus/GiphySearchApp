@@ -17,6 +17,6 @@ class GiphySearchCollectionCell: UICollectionViewCell {
 	var representedIdentifier: String?
 	
 	func updateImgWithPlaceholder() {
-		imgViewGif.image = UIImage(systemName: "person.fill")
+		imgViewGif.image = UIImage(systemName: "photo")
 	}
 }
