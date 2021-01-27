@@ -12,7 +12,6 @@
 		6357A00125C0BD2C006FDCD3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63579FFF25C0BD2C006FDCD3 /* Main.storyboard */; };
 		6357A00325C0BD2F006FDCD3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6357A00225C0BD2F006FDCD3 /* Assets.xcassets */; };
 		6357A00625C0BD2F006FDCD3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6357A00425C0BD2F006FDCD3 /* LaunchScreen.storyboard */; };
-		6357A01125C0BD2F006FDCD3 /* GiphySearchAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6357A01025C0BD2F006FDCD3 /* GiphySearchAppTests.swift */; };
 		6357A01C25C0BD2F006FDCD3 /* GiphySearchAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6357A01B25C0BD2F006FDCD3 /* GiphySearchAppUITests.swift */; };
 		6357A03325C0BEDF006FDCD3 /* GiphySearchCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6357A03225C0BEDF006FDCD3 /* GiphySearchCollectionViewController.swift */; };
 		6357A03825C0C3A9006FDCD3 /* GiphySearchCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6357A03725C0C3A9006FDCD3 /* GiphySearchCollectionCell.swift */; };
@@ -35,6 +34,16 @@
 		6357A0E625C1ACCF006FDCD3 /* GiphyDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6357A0E525C1ACCF006FDCD3 /* GiphyDetailViewController.swift */; };
 		6357A0F025C1ACF8006FDCD3 /* GiphyDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6357A0EF25C1ACF8006FDCD3 /* GiphyDetailPresenter.swift */; };
 		6357A0FC25C1B3CF006FDCD3 /* GiphyDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6357A0FB25C1B3CF006FDCD3 /* GiphyDetail.swift */; };
+		6357A11225C1C1D5006FDCD3 /* GiphySearchListPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6357A11125C1C1D5006FDCD3 /* GiphySearchListPresenterTests.swift */; };
+		6357A11B25C1CB34006FDCD3 /* GiphySearchListViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6357A11A25C1CB34006FDCD3 /* GiphySearchListViewControllerTests.swift */; };
+		6357A12025C1CB57006FDCD3 /* GiphySearchListViewControllerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6357A11F25C1CB57006FDCD3 /* GiphySearchListViewControllerMock.swift */; };
+		6357A12525C1CB83006FDCD3 /* GiphyAPIClientMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6357A12425C1CB83006FDCD3 /* GiphyAPIClientMock.swift */; };
+		6357A12A25C1CBB8006FDCD3 /* GiphyMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6357A12925C1CBB8006FDCD3 /* GiphyMock.swift */; };
+		6357A13625C1D0DB006FDCD3 /* GiphyDetailPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6357A13525C1D0DB006FDCD3 /* GiphyDetailPresenterTests.swift */; };
+		6357A13E25C1D170006FDCD3 /* GiphyDetailMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6357A13D25C1D170006FDCD3 /* GiphyDetailMock.swift */; };
+		6357A14325C1D2AE006FDCD3 /* GiphyDetailViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6357A14225C1D2AE006FDCD3 /* GiphyDetailViewControllerTests.swift */; };
+		6357A14825C1D2D4006FDCD3 /* GiphyDetailViewControllerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6357A14725C1D2D3006FDCD3 /* GiphyDetailViewControllerMock.swift */; };
+		6357A14D25C1D39C006FDCD3 /* GiphySearchListPresenterMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6357A14C25C1D39C006FDCD3 /* GiphySearchListPresenterMock.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,7 +72,6 @@
 		6357A00525C0BD2F006FDCD3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6357A00725C0BD2F006FDCD3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6357A00C25C0BD2F006FDCD3 /* GiphySearchAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GiphySearchAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		6357A01025C0BD2F006FDCD3 /* GiphySearchAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiphySearchAppTests.swift; sourceTree = "<group>"; };
 		6357A01225C0BD2F006FDCD3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6357A01725C0BD2F006FDCD3 /* GiphySearchAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GiphySearchAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6357A01B25C0BD2F006FDCD3 /* GiphySearchAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiphySearchAppUITests.swift; sourceTree = "<group>"; };
@@ -89,6 +97,16 @@
 		6357A0E525C1ACCF006FDCD3 /* GiphyDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiphyDetailViewController.swift; sourceTree = "<group>"; };
 		6357A0EF25C1ACF8006FDCD3 /* GiphyDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiphyDetailPresenter.swift; sourceTree = "<group>"; };
 		6357A0FB25C1B3CF006FDCD3 /* GiphyDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiphyDetail.swift; sourceTree = "<group>"; };
+		6357A11125C1C1D5006FDCD3 /* GiphySearchListPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiphySearchListPresenterTests.swift; sourceTree = "<group>"; };
+		6357A11A25C1CB34006FDCD3 /* GiphySearchListViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiphySearchListViewControllerTests.swift; sourceTree = "<group>"; };
+		6357A11F25C1CB57006FDCD3 /* GiphySearchListViewControllerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiphySearchListViewControllerMock.swift; sourceTree = "<group>"; };
+		6357A12425C1CB83006FDCD3 /* GiphyAPIClientMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiphyAPIClientMock.swift; sourceTree = "<group>"; };
+		6357A12925C1CBB8006FDCD3 /* GiphyMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiphyMock.swift; sourceTree = "<group>"; };
+		6357A13525C1D0DB006FDCD3 /* GiphyDetailPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiphyDetailPresenterTests.swift; sourceTree = "<group>"; };
+		6357A13D25C1D170006FDCD3 /* GiphyDetailMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiphyDetailMock.swift; sourceTree = "<group>"; };
+		6357A14225C1D2AE006FDCD3 /* GiphyDetailViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiphyDetailViewControllerTests.swift; sourceTree = "<group>"; };
+		6357A14725C1D2D3006FDCD3 /* GiphyDetailViewControllerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiphyDetailViewControllerMock.swift; sourceTree = "<group>"; };
+		6357A14C25C1D39C006FDCD3 /* GiphySearchListPresenterMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiphySearchListPresenterMock.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,7 +172,8 @@
 		6357A00F25C0BD2F006FDCD3 /* GiphySearchAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				6357A01025C0BD2F006FDCD3 /* GiphySearchAppTests.swift */,
+				6357A11625C1C2D6006FDCD3 /* Mocks */,
+				6357A10F25C1C1A2006FDCD3 /* Modules */,
 				6357A01225C0BD2F006FDCD3 /* Info.plist */,
 			);
 			path = GiphySearchAppTests;
@@ -172,8 +191,8 @@
 		6357A03C25C0D3F9006FDCD3 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				6357A0E425C1ACA7006FDCD3 /* GiphyDetail */,
 				6357A03D25C0D413006FDCD3 /* ModuleFactory.swift */,
+				6357A0E425C1ACA7006FDCD3 /* GiphyDetail */,
 				6357A04525C0D44B006FDCD3 /* GiphySearchList */,
 			);
 			path = Modules;
@@ -316,6 +335,46 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		6357A10F25C1C1A2006FDCD3 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				6357A11025C1C1AA006FDCD3 /* GiphySearchList */,
+				6357A13425C1D0A5006FDCD3 /* GiphyDetail */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		6357A11025C1C1AA006FDCD3 /* GiphySearchList */ = {
+			isa = PBXGroup;
+			children = (
+				6357A11125C1C1D5006FDCD3 /* GiphySearchListPresenterTests.swift */,
+				6357A11A25C1CB34006FDCD3 /* GiphySearchListViewControllerTests.swift */,
+			);
+			path = GiphySearchList;
+			sourceTree = "<group>";
+		};
+		6357A11625C1C2D6006FDCD3 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				6357A11F25C1CB57006FDCD3 /* GiphySearchListViewControllerMock.swift */,
+				6357A12425C1CB83006FDCD3 /* GiphyAPIClientMock.swift */,
+				6357A12925C1CBB8006FDCD3 /* GiphyMock.swift */,
+				6357A13D25C1D170006FDCD3 /* GiphyDetailMock.swift */,
+				6357A14725C1D2D3006FDCD3 /* GiphyDetailViewControllerMock.swift */,
+				6357A14C25C1D39C006FDCD3 /* GiphySearchListPresenterMock.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		6357A13425C1D0A5006FDCD3 /* GiphyDetail */ = {
+			isa = PBXGroup;
+			children = (
+				6357A13525C1D0DB006FDCD3 /* GiphyDetailPresenterTests.swift */,
+				6357A14225C1D2AE006FDCD3 /* GiphyDetailViewControllerTests.swift */,
+			);
+			path = GiphyDetail;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -386,6 +445,7 @@
 					};
 					6357A00B25C0BD2F006FDCD3 = {
 						CreatedOnToolsVersion = 12.3;
+						LastSwiftMigration = 1230;
 						TestTargetID = 63579FF525C0BD2C006FDCD3;
 					};
 					6357A01625C0BD2F006FDCD3 = {
@@ -476,7 +536,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6357A01125C0BD2F006FDCD3 /* GiphySearchAppTests.swift in Sources */,
+				6357A14D25C1D39C006FDCD3 /* GiphySearchListPresenterMock.swift in Sources */,
+				6357A14825C1D2D4006FDCD3 /* GiphyDetailViewControllerMock.swift in Sources */,
+				6357A12025C1CB57006FDCD3 /* GiphySearchListViewControllerMock.swift in Sources */,
+				6357A11B25C1CB34006FDCD3 /* GiphySearchListViewControllerTests.swift in Sources */,
+				6357A11225C1C1D5006FDCD3 /* GiphySearchListPresenterTests.swift in Sources */,
+				6357A12A25C1CBB8006FDCD3 /* GiphyMock.swift in Sources */,
+				6357A13E25C1D170006FDCD3 /* GiphyDetailMock.swift in Sources */,
+				6357A14325C1D2AE006FDCD3 /* GiphyDetailViewControllerTests.swift in Sources */,
+				6357A12525C1CB83006FDCD3 /* GiphyAPIClientMock.swift in Sources */,
+				6357A13625C1D0DB006FDCD3 /* GiphyDetailPresenterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -684,6 +753,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2G876RW9RP;
 				INFOPLIST_FILE = GiphySearchAppTests/Info.plist;
@@ -695,6 +765,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = net.elmadigital.GiphySearchAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GiphySearchApp.app/GiphySearchApp";
@@ -706,6 +777,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2G876RW9RP;
 				INFOPLIST_FILE = GiphySearchAppTests/Info.plist;
