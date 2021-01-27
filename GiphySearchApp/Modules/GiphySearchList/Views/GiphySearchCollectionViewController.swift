@@ -56,9 +56,6 @@ extension GiphySearchListViewController: UISearchBarDelegate {
 	func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
 		if searchText.isEmpty {
 			presenter.handleCancelButtonAction()
-			DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-				searchBar.resignFirstResponder()
-			}
 		}
 	}
 }
@@ -102,6 +99,9 @@ extension GiphySearchListViewController: GiphySearchListViewProtocol {
 	func updateView(giphys: [Giphy]) {
 		self.giphys = giphys
 		collectionView.reloadData()
+		DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+			self.searchBar.resignFirstResponder()
+		}
 	}
 	
 	/// Clears cahce
