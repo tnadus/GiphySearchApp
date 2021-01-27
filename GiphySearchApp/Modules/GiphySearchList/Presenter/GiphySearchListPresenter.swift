@@ -5,11 +5,13 @@
 //  Created by Murat Sudan on 26/01/2021.
 //
 
-import Foundation
+import UIKit
 
 protocol GiphySearchListViewProtocol: class {
-	func updateView(barTitle: String,
+	func updateTexts(barTitle: String,
 					placeholderText: String)
+	func updateView(giphys: [Giphy])
+	func updateGiphyImage(img: UIImage, giphyId: String)
 	func showSpinner()
 	func hideSpinner()
 	func showAlert(title: String, body: String)
@@ -18,6 +20,8 @@ protocol GiphySearchListViewProtocol: class {
 protocol GiphySearchListPresenterProtocol: class {
 	func start()
 	func search(term: String?)
+	func handleCancelButtonAction()
+	func fetchImage(urlString: String, giphyId: String)
 	var managedView: GiphySearchListViewProtocol? { get set }
 }
 
@@ -26,8 +30,7 @@ protocol GiphySearchListNavigatorProtocol {
 	var onError: ((Error) -> Void)? { get set }
 }
 
-class GiphySearchListPresenter: GiphySearchListPresenterProtocol
-, GiphySearchListNavigatorProtocol {
+class GiphySearchListPresenter: GiphySearchListNavigatorProtocol {
 	
 	//Constants
 	private enum Constants {
@@ -55,31 +58,62 @@ class GiphySearchListPresenter: GiphySearchListPresenterProtocol
 	}
 	
 	func start() {
-		managedView?.updateView(barTitle: Constants.barTitle,
+		managedView?.updateTexts(barTitle: Constants.barTitle,
 								placeholderText: Constants.placeholderText)
+	}
+}
+
+//MARK: GiphySearchListPresenterProtocol
+extension GiphySearchListPresenter: GiphySearchListPresenterProtocol {
+	
+	func fetchImage(urlString: String,
+					giphyId: String) {
+		giphyAPIClient.fetchImage(urlString: urlString) { [weak self] result in
+			switch result {
+			case .success(let img):
+				self?.managedView?.updateGiphyImage(img: img,
+													giphyId: giphyId)
+			case .failure(_):
+				print("img error")
+				break
+			}
+		}
+	}
+	
+	func handleCancelButtonAction() {
+		managedView?.updateView(giphys: [])
 	}
 	
 	func search(term: String?) {
 		guard let term = term else { return }
+		managedView?.showSpinner()
 		giphyAPIClient.doSearch(searchTerm: term) { [weak self] (result) in
 			switch result {
 			case .success(let giphyResponse):
-				print(giphyResponse)
+				self?.handleSearchSuccess(giphyResponse)
 			case .failure(let error):
-				let  title = Constants.alertError.title
-				let body: String
-				switch error {
-				case .serverError(_):
-					body = Constants.alertError.bodyServer
-				case .formatError:
-					body = Constants.alertError.bodyFormat
-				default:
-					
-					body = Constants.alertError.bodyDefault
-				}
-				self?.managedView?.showAlert(title: title,
-									   body: body)
+				self?.handleSearchError(error)
 			}
+			self?.managedView?.hideSpinner()
 		}
+	}
+	
+	private func handleSearchSuccess(_ giphyResponse: GiphyResponse) {
+		managedView?.updateView(giphys: giphyResponse.data)
+	}
+	
+	private func handleSearchError(_ error: NetworkServiceError) {
+		let  title = Constants.alertError.title
+		let body: String
+		switch error {
+		case .serverError(_):
+			body = Constants.alertError.bodyServer
+		case .formatError:
+			body = Constants.alertError.bodyFormat
+		default:
+			body = Constants.alertError.bodyDefault
+		}
+		managedView?.showAlert(title: title,
+							   body: body)
 	}
 }

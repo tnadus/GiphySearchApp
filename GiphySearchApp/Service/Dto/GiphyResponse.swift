@@ -8,5 +8,5 @@
 import Foundation
 
 struct GiphyResponse: Decodable {
-	let data: [GiphyData]
+	let data: [Giphy]
 }

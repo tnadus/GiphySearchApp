@@ -10,6 +10,7 @@ import UIKit
 struct ImageParser: ParserProtocol {
 		
 	typealias ParsedData = UIImage
+	typealias ParserCompletion = (Result<UIImage, ParseError>) -> Void
 	
 	func parse(data: Data,
 			   onCompletion: @escaping ParserCompletion) {

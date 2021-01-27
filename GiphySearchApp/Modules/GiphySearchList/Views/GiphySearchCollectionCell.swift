@@ -9,10 +9,13 @@ import UIKit
 
 class GiphySearchCollectionCell: UICollectionViewCell {
     
+	//IBOutlets
 	@IBOutlet weak var imgViewGif: UIImageView!
 	
-	override func awakeFromNib() {
-		super.awakeFromNib()
-		
+	//properties
+	var representedIdentifier: String?
+	
+	func updateImgWithPlaceholder() {
+		imgViewGif.image = UIImage(systemName: "person.fill")
 	}
 }

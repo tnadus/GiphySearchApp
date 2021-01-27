@@ -5,10 +5,11 @@
 //  Created by Murat Sudan on 27/01/2021.
 //
 
-import Foundation
+import UIKit
 
 protocol GiphyAPIClientProtocol {
 	typealias GiphyAPISearchCompletion = (Result<GiphyResponse, NetworkServiceError>) -> Void
+	typealias GiphyImageFetchCompletion = (Result<UIImage, NetworkServiceError>) -> Void
 	
 	func doSearch(searchTerm: String,
 						 limit: String,
@@ -17,6 +18,9 @@ protocol GiphyAPIClientProtocol {
 						 lang: GiphyAPIClient.lang,
 						 onCompletion: @escaping GiphyAPISearchCompletion
 						 )
+	
+	func fetchImage(urlString: String,
+					onCompletion: @escaping GiphyImageFetchCompletion)
 }
 
 extension GiphyAPIClientProtocol {
@@ -89,6 +93,25 @@ class GiphyAPIClient: GiphyAPIClientProtocol {
 			switch result {
 			case .success(let giphyResponse):
 				onCompletion(.success(giphyResponse))
+			case .failure(let error):
+				onCompletion(.failure(error))
+			}
+		}
+	}
+	
+	public func fetchImage(urlString: String,
+						   onCompletion: @escaping GiphyImageFetchCompletion
+	) {
+		
+		let parser = ImageParser()
+		let request = GiphyImageRequest()
+		guard let urlRequest = request.buildURLRequest(baseURL: urlString) else { return onCompletion(.failure(.formatError))}
+		
+		let networkService = NetworkService<ImageParser>()
+		networkService.dispatch(urlRequest: urlRequest, parser: parser) { (result) in
+			switch result {
+			case .success(let img):
+				onCompletion(.success(img))
 			case .failure(let error):
 				onCompletion(.failure(error))
 			}

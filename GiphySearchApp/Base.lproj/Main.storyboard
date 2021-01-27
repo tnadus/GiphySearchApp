@@ -65,6 +65,7 @@
                                 <connections>
                                     <outlet property="dataSource" destination="f0I-LB-XGb" id="GCH-MI-lHQ"/>
                                     <outlet property="delegate" destination="f0I-LB-XGb" id="U8a-ia-Gls"/>
+                                    <outlet property="prefetchDataSource" destination="f0I-LB-XGb" id="KuQ-Di-E6L"/>
                                 </connections>
                             </collectionView>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="eyf-nN-CB8">
