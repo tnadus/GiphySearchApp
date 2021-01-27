@@ -100,18 +100,21 @@ extension GiphySearchListViewController: UICollectionViewDataSource {
 		let giphy = giphys[indexPath.row]
 		cell.representedIdentifier = giphy.id
 		if let img = cacheImages.object(forKey: giphy.id as NSString) {
-			print("murat> full cell row = \(indexPath.row) - id: \(giphy.id)")
 			cell.imgViewGif.image = img
 		} else {
-			print("murat> empty cell row = \(indexPath.row) - id: \(giphy.id) - sent load request")
-			cell.updateImgWithPlaceholder()
-			presenter.fetchImage(urlString: giphy.images.originalStill.url, giphyId: giphy.id) { img in
-				if cell.representedIdentifier == giphy.id {
-					cell.imgViewGif.image = img
-				}
-			}
+			handleEmptyImageCell(cell, giphy: giphy)
 		}
 		return cell
+	}
+	
+	func handleEmptyImageCell(_ cell: GiphySearchCollectionCell,
+							  giphy: Giphy) {
+		cell.updateImgWithPlaceholder()
+		presenter.fetchImage(urlString: giphy.images.originalStill.url, giphyId: giphy.id) { img in
+			if cell.representedIdentifier == giphy.id {
+				cell.imgViewGif.image = img
+			}
+		}
 	}
 }
 
@@ -122,7 +125,6 @@ extension GiphySearchListViewController: UICollectionViewDataSourcePrefetching {
 		for indexPath in indexPaths {
 			let giphy = giphys[indexPath.row]
 			if (cacheImages.object(forKey: giphy.id as NSString) == nil) {
-				print("murat> prefetch cell row = \(indexPath.row) - id: \(giphy.id) - sent load request ")
 				presenter.fetchImage(urlString: giphy.images.originalStill.url, giphyId: giphy.id, onCompletion: nil)
 			}
 		}
