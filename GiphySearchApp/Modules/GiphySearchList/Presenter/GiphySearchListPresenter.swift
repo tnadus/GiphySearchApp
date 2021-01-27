@@ -11,7 +11,7 @@ protocol GiphySearchListViewProtocol: class {
 	func updateTexts(barTitle: String,
 					placeholderText: String)
 	func updateView(giphys: [Giphy])
-	func updateGiphyImage(img: UIImage, giphyId: String)
+	func clearCache()
 	func showSpinner()
 	func hideSpinner()
 	func showAlert(title: String, body: String)
@@ -21,7 +21,10 @@ protocol GiphySearchListPresenterProtocol: class {
 	func start()
 	func search(term: String?)
 	func handleCancelButtonAction()
-	func fetchImage(urlString: String, giphyId: String)
+	func fetchImage(urlString: String,
+					giphyId: String,
+					onCompletion: ((UIImage?) -> Void)?)
+	func onReceivedMemoryWarning()
 	var managedView: GiphySearchListViewProtocol? { get set }
 }
 
@@ -48,6 +51,7 @@ class GiphySearchListPresenter: GiphySearchListNavigatorProtocol {
 	//Properties
 	weak var managedView: GiphySearchListViewProtocol?
 	let giphyAPIClient: GiphyAPIClientProtocol
+
 	
 	//navigation
 	var onSuccessScreen: (() -> Void)?
@@ -66,15 +70,20 @@ class GiphySearchListPresenter: GiphySearchListNavigatorProtocol {
 //MARK: GiphySearchListPresenterProtocol
 extension GiphySearchListPresenter: GiphySearchListPresenterProtocol {
 	
+	func onReceivedMemoryWarning() {
+		managedView?.clearCache()
+	}
+	
 	func fetchImage(urlString: String,
-					giphyId: String) {
-		giphyAPIClient.fetchImage(urlString: urlString) { [weak self] result in
+					giphyId: String,
+					onCompletion: ((UIImage?) -> Void)? = nil) {
+		giphyAPIClient.fetchImage(urlString: urlString) { result in
 			switch result {
 			case .success(let img):
-				self?.managedView?.updateGiphyImage(img: img,
-													giphyId: giphyId)
+				onCompletion?(img)
 			case .failure(_):
 				print("img error")
+				onCompletion?(nil)
 				break
 			}
 		}

@@ -20,7 +20,7 @@ class GiphySearchListViewController: UIViewController {
 	var presenter: GiphySearchListPresenterProtocol!
 	private var giphys = [Giphy]()
 	private var cacheImages = NSCache<NSString, UIImage>()
-	
+		
     override func viewDidLoad() {
         super.viewDidLoad()
 		presenter.managedView = self
@@ -28,7 +28,7 @@ class GiphySearchListViewController: UIViewController {
     }
 	
 	override func didReceiveMemoryWarning() {
-		cacheImages.removeAllObjects()
+		presenter.onReceivedMemoryWarning()
 	}
 }
 
@@ -78,19 +78,8 @@ extension GiphySearchListViewController: GiphySearchListViewProtocol {
 		collectionView.reloadData()
 	}
 	
-	func updateGiphyImage(img: UIImage,
-						  giphyId: String) {
-		cacheImages.setObject(img, forKey: giphyId as NSString)
-		var indexPath: IndexPath?
-		for cell in collectionView.visibleCells {
-			if let giphyCell = cell as? GiphySearchCollectionCell,
-			   giphyCell.representedIdentifier == giphyId {
-				indexPath = collectionView.indexPath(for: cell)
-			}
-		}
-		if let indexPath = indexPath {
-			collectionView.reloadItems(at: [indexPath])
-		}
+	func clearCache() {
+		cacheImages.removeAllObjects()
 	}
 }
 
@@ -111,25 +100,30 @@ extension GiphySearchListViewController: UICollectionViewDataSource {
 		let giphy = giphys[indexPath.row]
 		cell.representedIdentifier = giphy.id
 		if let img = cacheImages.object(forKey: giphy.id as NSString) {
+			print("murat> full cell row = \(indexPath.row) - id: \(giphy.id)")
 			cell.imgViewGif.image = img
 		} else {
+			print("murat> empty cell row = \(indexPath.row) - id: \(giphy.id) - sent load request")
 			cell.updateImgWithPlaceholder()
-			presenter.fetchImage(urlString: giphy.images.originalStill.url, giphyId: giphy.id)
+			presenter.fetchImage(urlString: giphy.images.originalStill.url, giphyId: giphy.id) { img in
+				if cell.representedIdentifier == giphy.id {
+					cell.imgViewGif.image = img
+				}
+			}
 		}
-		
 		return cell
 	}
 }
 
 // MARK: UICollectionViewDataSource
 extension GiphySearchListViewController: UICollectionViewDataSourcePrefetching {
-	
+
 	func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
 		for indexPath in indexPaths {
-			print(indexPath)
 			let giphy = giphys[indexPath.row]
 			if (cacheImages.object(forKey: giphy.id as NSString) == nil) {
-				presenter.fetchImage(urlString: giphy.images.originalStill.url, giphyId: giphy.id)
+				print("murat> prefetch cell row = \(indexPath.row) - id: \(giphy.id) - sent load request ")
+				presenter.fetchImage(urlString: giphy.images.originalStill.url, giphyId: giphy.id, onCompletion: nil)
 			}
 		}
 	}
