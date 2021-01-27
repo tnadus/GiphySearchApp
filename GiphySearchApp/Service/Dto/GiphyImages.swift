@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// Nested class for search request response object
 struct GiphyImages: Decodable {
 	let originalStill: GiphyOriginalStill
 	

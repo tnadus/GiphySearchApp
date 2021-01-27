@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// Cell for showing the giphy object
 class GiphySearchCollectionCell: UICollectionViewCell {
     
 	//IBOutlets

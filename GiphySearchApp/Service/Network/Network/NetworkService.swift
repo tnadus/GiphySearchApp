@@ -7,12 +7,14 @@
 
 import Foundation
 
+/// Error definitions of NetworkService calls
 enum NetworkServiceError: Error {
 	case userError
 	case serverError(Int?)
 	case formatError
 }
 
+/// NetworkService Protocol
 protocol NetworkServiceProtocol {
 	associatedtype AnyParser: ParserProtocol
 	typealias NetworkServiceCompletion = (Result<AnyParser.ParsedData, NetworkServiceError>) -> Void
@@ -25,16 +27,24 @@ protocol NetworkServiceProtocol {
 }
 
 
+/// Generic network service handler which supports different parsers
 class NetworkService<T: ParserProtocol>: NetworkServiceProtocol {
 	typealias AnyParser = T
 	
 	let urlSession: URLSession
 	var task: URLSessionDataTask?
 	
+	/// Initialize the network service
+	/// - Parameter urlSession: required a urlSession, default is apple's shared
 	public init(urlSession: URLSession = .shared) {
 		self.urlSession = urlSession
 	}
 	
+	/// Dispatch the request
+	/// - Parameters:
+	///   - urlRequest: requires proper URLRequest object
+	///   - parser: requires related parser to parse after downloading data
+	///   - onCompletion: called on completion of download op
 	func dispatch(urlRequest: URLRequest,
 				 parser: AnyParser,
 				 onCompletion: @escaping NetworkServiceCompletion) {

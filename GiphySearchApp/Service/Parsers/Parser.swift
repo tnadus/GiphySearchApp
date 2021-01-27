@@ -7,10 +7,12 @@
 
 import Foundation
 
+/// Parse error
 enum ParseError: Error {
 	case invalid
 }
 
+/// Generic Parser protocol
 protocol ParserProtocol {
 	typealias ParserCompletion = (Result<ParsedData, ParseError>) -> Void
 	associatedtype ParsedData

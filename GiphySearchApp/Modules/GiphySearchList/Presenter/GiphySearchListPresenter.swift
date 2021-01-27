@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// GiphySearchListView protocol
 protocol GiphySearchListViewProtocol: class {
 	func updateTexts(barTitle: String,
 					placeholderText: String)
@@ -17,6 +18,7 @@ protocol GiphySearchListViewProtocol: class {
 	func showAlert(title: String, body: String)
 }
 
+/// GiphySearchListPresenter protocol
 protocol GiphySearchListPresenterProtocol: class {
 	func start()
 	func search(term: String?)
@@ -29,10 +31,12 @@ protocol GiphySearchListPresenterProtocol: class {
 	var managedView: GiphySearchListViewProtocol? { get set }
 }
 
+/// GiphySearchListNavigator protocol
 protocol GiphySearchListNavigatorProtocol {
 	var onDetailScreen: ((GiphyDetail) -> Void)? { get set }
 }
 
+/// Holds and handles all the business related logic of Search List screen
 class GiphySearchListPresenter: GiphySearchListNavigatorProtocol {
 	
 	//Constants
@@ -56,10 +60,13 @@ class GiphySearchListPresenter: GiphySearchListNavigatorProtocol {
 	//navigation
 	var onDetailScreen: ((GiphyDetail) -> Void)?
 	
+	/// initialize the presenter with dependencies
+	/// - Parameter giphyAPIClient: <#giphyAPIClient description#>
 	public init(giphyAPIClient: GiphyAPIClientProtocol = GiphyAPIClient()) {
 		self.giphyAPIClient = giphyAPIClient
 	}
 	
+	/// Starts the presenter
 	func start() {
 		managedView?.updateTexts(barTitle: Constants.barTitle,
 								placeholderText: Constants.placeholderText)
@@ -69,6 +76,10 @@ class GiphySearchListPresenter: GiphySearchListNavigatorProtocol {
 //MARK: GiphySearchListPresenterProtocol
 extension GiphySearchListPresenter: GiphySearchListPresenterProtocol {
 	
+	/// Handles selection of giphy item
+	/// - Parameters:
+	///   - giphy: requires giphy object
+	///   - img: requires img to pass it to detail screen
 	func selectItem(giphy: Giphy,
 					img: UIImage) {
 		let giphyDetail = GiphyDetail(title: giphy.title,
@@ -78,10 +89,16 @@ extension GiphySearchListPresenter: GiphySearchListPresenterProtocol {
 		onDetailScreen?(giphyDetail)
 	}
 	
+	/// Manages memory management of image cache
 	func onReceivedMemoryWarning() {
 		managedView?.clearCache()
 	}
 	
+	/// Fetch image from network
+	/// - Parameters:
+	///   - urlString: required url in string form
+	///   - giphyId: id of the giphy object
+	///   - onCompletion: called when it's finished with either success or failure
 	func fetchImage(urlString: String,
 					giphyId: String,
 					onCompletion: ((UIImage?) -> Void)? = nil) {
@@ -90,17 +107,19 @@ extension GiphySearchListPresenter: GiphySearchListPresenterProtocol {
 			case .success(let img):
 				onCompletion?(img)
 			case .failure(_):
-				print("img error")
 				onCompletion?(nil)
 				break
 			}
 		}
 	}
 	
+	/// Clears all the giphy objects
 	func handleCancelButtonAction() {
 		managedView?.updateView(giphys: [])
 	}
 	
+	/// Makes a network search
+	/// - Parameter term: search keyword to be sent
 	func search(term: String?) {
 		guard let term = term else { return }
 		managedView?.showSpinner()

@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// GiphyAPIClient protocol
 protocol GiphyAPIClientProtocol {
 	typealias GiphyAPISearchCompletion = (Result<GiphyResponse, NetworkServiceError>) -> Void
 	typealias GiphyImageFetchCompletion = (Result<UIImage, NetworkServiceError>) -> Void
@@ -23,13 +24,23 @@ protocol GiphyAPIClientProtocol {
 					onCompletion: @escaping GiphyImageFetchCompletion)
 }
 
+/// Handles default values for GiphyAPIClient
 extension GiphyAPIClientProtocol {
+	
 	//Constants
 	private static var limit: String { "20" }
 	private static var offset: String { "0" }
 	private static var rating: GiphyAPIClient.Rating { .g }
 	private static var lang: GiphyAPIClient.lang { .en }
 	
+	/// Making a network search on giphy API
+	/// - Parameters:
+	///   - searchTerm: keyword to be searched
+	///   - limit: resuls limit, default is 20
+	///   - offset: pagination, default is 0
+	///   - rating: rating of the images, default is G
+	///   - lang: language of the search term, default is English
+	///   - onCompletion: called on completion of search op
 	func doSearch(searchTerm: String,
 				  limit: String = Self.limit,
 				  offset: String = Self.offset,
@@ -41,6 +52,7 @@ extension GiphyAPIClientProtocol {
 	}
 }
 
+/// Network API client for Giphy APIs
 class GiphyAPIClient: GiphyAPIClientProtocol {
 	
 	//Constants
@@ -66,6 +78,14 @@ class GiphyAPIClient: GiphyAPIClientProtocol {
 		case en, es, de, it, tr
 	}
 	
+	/// Making a network search on giphy API
+	/// - Parameters:
+	///   - searchTerm: keyword to be searched
+	///   - limit: resuls limit
+	///   - offset: pagination
+	///   - rating: rating of the images
+	///   - lang: language of the search term
+	///   - onCompletion: called on completion of search op
 	public func doSearch(searchTerm: String,
 						 limit: String,
 						 offset: String,
@@ -99,6 +119,10 @@ class GiphyAPIClient: GiphyAPIClientProtocol {
 		}
 	}
 	
+	/// Fetches network images
+	/// - Parameters:
+	///   - urlString: url string to fetch from
+	///   - onCompletion: called on completion of fetch op
 	public func fetchImage(urlString: String,
 						   onCompletion: @escaping GiphyImageFetchCompletion
 	) {

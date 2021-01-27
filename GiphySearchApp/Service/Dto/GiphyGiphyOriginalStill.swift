@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// Nested class for search request response object
 struct GiphyOriginalStill: Decodable {
 	let height: String
 	let width: String

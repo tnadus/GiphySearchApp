@@ -7,10 +7,15 @@
 
 import Foundation
 
+/// Parses JSON data into model object
 struct JsonParser<CustomData: Decodable>: ParserProtocol {
 	
 	typealias ParsedData = CustomData
 	
+	/// Parse json object
+	/// - Parameters:
+	///   - data: requires Data
+	///   - onCompletion: called on completion of parsing
 	func parse(data: Data,
 			   onCompletion: @escaping ParserCompletion) {
 		guard let data = try? JSONDecoder()

@@ -7,8 +7,8 @@
 
 import UIKit
 
+/// The detail screen of the chosen Gifhy
 class GiphyDetailViewController: UIViewController {
-	
 	
 	//IBOutlets
 	@IBOutlet weak var imgViewFullScreen: UIImageView!
@@ -32,6 +32,12 @@ class GiphyDetailViewController: UIViewController {
 // MARK: GiphyDetailViewProtocol
 extension GiphyDetailViewController: GiphyDetailViewProtocol {
 	
+	/// Update the UI elements
+	/// - Parameters:
+	///   - titleLabel: title label text
+	///   - widthLabel: width label text
+	///   - heightLabel: height label text
+	///   - giphyDetail: giphy detail to fill the image and label values
 	func updateView(titleLabel: String,
 					widthLabel: String,
 					heightLabel: String,
@@ -46,8 +52,4 @@ extension GiphyDetailViewController: GiphyDetailViewProtocol {
 		
 		self.imgViewFullScreen.image = giphyDetail.image
 	}
-	
-	
-
-	
 }

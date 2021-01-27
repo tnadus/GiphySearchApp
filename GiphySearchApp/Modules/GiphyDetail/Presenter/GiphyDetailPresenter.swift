@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// GiphyDetailView Protocol
 protocol GiphyDetailViewProtocol: class {
 	func updateView(titleLabel: String,
 					widthLabel: String,
@@ -14,11 +15,13 @@ protocol GiphyDetailViewProtocol: class {
 					giphyDetail: GiphyDetail)
 }
 
+/// GiphyDetailPresenter Protocol
 protocol GiphyDetailPresenterProtocol {
 	func start()
 	var managedView: GiphyDetailViewProtocol? { get set }
 }
 
+/// Handles all the business logic for GiphyDetailScreen
 class GiphyDetailPresenter: GiphyDetailPresenterProtocol {
 	
 	//Constants
@@ -34,10 +37,13 @@ class GiphyDetailPresenter: GiphyDetailPresenterProtocol {
 	//Properties
 	weak var managedView: GiphyDetailViewProtocol?
 	
+	/// Initialize the presenter
+	/// - Parameter giphyDetail: details about the chosen giphy
 	public init(giphyDetail: GiphyDetail) {
 		self.giphyDetail = giphyDetail
 	}
 	
+	/// Start presenter
 	func start() {
 		managedView?.updateView(titleLabel: Constants.titleLabel,
 								widthLabel: Constants.widthLabel,

@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// Holds related info to make a image fetch request
 struct GiphyImageRequest: RequestProtocol {
 	var path: String = ""
 }

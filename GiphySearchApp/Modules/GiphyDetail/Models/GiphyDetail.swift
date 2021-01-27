@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// Holds Giphy data
 struct GiphyDetail {
 	let title: String
 	let width: String

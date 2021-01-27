@@ -7,11 +7,16 @@
 
 import UIKit
 
+/// Shows the Giphy Search List screen
 class GiphySearchListViewController: UIViewController {
 	
 	//Constants
 	private enum Constants {
 		static let reuseIdentifier = "GiphySearchCollectionCellId"
+		enum cell {
+			static let width: CGFloat = 90.0
+			static let paddingBetweenCells: CGFloat = 16.0
+		}
 	}
 	
 	//IBOutlets
@@ -37,10 +42,17 @@ class GiphySearchListViewController: UIViewController {
 
 // MARK: UISearchBarDelegate
 extension GiphySearchListViewController: UISearchBarDelegate {
+	
+	/// handles search action
+	/// - Parameter searchBar: searchBar itself
 	func searchBarSearchButtonClicked(_ searchBar: UISearchBar)  {
 		presenter.search(term: searchBar.text)
 	}
 	
+	/// handles clear action of the searchBar
+	/// - Parameters:
+	///   - searchBar: searchBar itself
+	///   - searchText: searchText
 	func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
 		if searchText.isEmpty {
 			presenter.handleCancelButtonAction()
@@ -53,33 +65,46 @@ extension GiphySearchListViewController: UISearchBarDelegate {
 
 // MARK: GiphySearchListViewProtocol
 extension GiphySearchListViewController: GiphySearchListViewProtocol {
-		
+	
+	/// Update the static texts on the screen
+	/// - Parameters:
+	///   - barTitle: ViewController navigation bar title
+	///   - placeholderText: placeholderText for searchBar
 	func updateTexts(barTitle: String, placeholderText: String) {
 		self.title = barTitle
 		searchBar.placeholder = placeholderText
 	}
 	
+	/// Shows the spinner
 	func showSpinner() {
 		view.isUserInteractionEnabled = false
 		spinner.startAnimating()
 	}
 	
+	/// Hides the spinner
 	func hideSpinner() {
 		view.isUserInteractionEnabled = true
 		spinner.stopAnimating()
 	}
 	
+	/// Shows an alert view
+	/// - Parameters:
+	///   - title: title of the alert
+	///   - body: body text of the alert
 	func showAlert(title: String, body: String) {
 		let alertController = UIAlertController(title: title, message: body, preferredStyle: .alert)
 		alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
 		self.present(alertController, animated: true, completion: nil)
 	}
 	
+	/// Load and show the giphy objects given
+	/// - Parameter giphys: given giphy object
 	func updateView(giphys: [Giphy]) {
 		self.giphys = giphys
 		collectionView.reloadData()
 	}
 	
+	/// Clears cahce
 	func clearCache() {
 		cacheImages.removeAllObjects()
 	}
@@ -120,7 +145,7 @@ extension GiphySearchListViewController: UICollectionViewDataSource {
 	}
 }
 
-// MARK: UICollectionViewDataSource
+// MARK: UICollectionViewDataSourcePrefetching
 extension GiphySearchListViewController: UICollectionViewDataSourcePrefetching {
 
 	func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
@@ -137,7 +162,7 @@ extension GiphySearchListViewController: UICollectionViewDataSourcePrefetching {
 extension GiphySearchListViewController: UICollectionViewDelegateFlowLayout {
 	
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-		return CGSize(width: (self.view.frame.width/2.0 - 16), height: 90.0)
+		return CGSize(width: (self.view.frame.width/2.0 - Constants.cell.paddingBetweenCells), height: Constants.cell.width)
 	}
 }
 

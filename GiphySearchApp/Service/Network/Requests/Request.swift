@@ -7,15 +7,18 @@
 
 import Foundation
 
+/// Http methods
 public enum HTTPMethod: String {
 	case get = "GET"
 }
 
+/// Request Protocol
 public protocol RequestProtocol {
 	var path: String { get }
 	var queryParams: [String: String]? { get }
 }
 
+/// Extension of Request protocol to handle default buildURLRequest
 extension RequestProtocol {
 	
 	var method: String { return HTTPMethod.get.rawValue }

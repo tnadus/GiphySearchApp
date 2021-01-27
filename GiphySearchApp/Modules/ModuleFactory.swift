@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// Responsible to setup dependencies and assemble of modules (ViewController + presenter + dependencies)
 class ModuleFactory {
 	
 	//Constants
@@ -15,7 +16,9 @@ class ModuleFactory {
 		static let giphySearchListId = "GiphySearchListViewControllerId"
 		static let giphyDetailId = "GiphyDetailViewControllerId"
 	}
-
+	
+	/// Generate the SearchListModule by setting up all the dependencies
+	/// - Returns: GiphySearchListViewController & GiphySearchListPresenter
 	func makeGiphySearchListModule() -> (GiphySearchListViewController, GiphySearchListPresenter) {
 		
 		let vc = UIStoryboard(name: Constants.mainBundle, bundle: nil).instantiateViewController(identifier: Constants.giphySearchListId) as GiphySearchListViewController
@@ -24,6 +27,9 @@ class ModuleFactory {
 		return (vc, presenter)
 	}
 	
+	/// Generate the GiphyDetailModule by setting up all the dependencies
+	/// - Parameter giphyDetail: requires details of chosen giphy
+	/// - Returns: GiphyDetailViewController & GiphyDetailPresenter
 	func makeGiphyDetailModule(giphyDetail: GiphyDetail) -> (GiphyDetailViewController, GiphyDetailPresenter) {
 		
 		let vc = UIStoryboard(name: Constants.mainBundle, bundle: nil).instantiateViewController(identifier: Constants.giphyDetailId) as GiphyDetailViewController

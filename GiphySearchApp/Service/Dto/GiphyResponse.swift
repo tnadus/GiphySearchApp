@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// Network response for search request
 struct GiphyResponse: Decodable {
 	let data: [Giphy]
 }

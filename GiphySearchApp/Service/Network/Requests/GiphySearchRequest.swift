@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// Holds related info to make a search request
 public struct GiphySearchRequest: RequestProtocol {
 		
 	public var queryParams: [String : String]?
