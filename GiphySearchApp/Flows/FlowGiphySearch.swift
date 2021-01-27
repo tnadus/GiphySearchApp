@@ -19,7 +19,7 @@ class FlowGiphySearch {
 	}
 	
 	func start() {
-
+		navigateToGiphySearchScreen()
 	}
 	
 	func navigateToGiphySearchScreen() {
@@ -28,7 +28,8 @@ class FlowGiphySearch {
 		router.pushViewController(vc, animated: false)
 	}
 	
-	func navigateToGiphyDetailScreen() {
-		let (vc, _) = moduleFactory.makeGiphySearchListModule()
+	func navigateToGiphyDetailScreen(giphyDetail: GiphyDetail) {
+		let (vc, _) = moduleFactory.makeGiphyDetailModule(giphyDetail: giphyDetail)
+		router.pushViewController(vc, animated: true)
 	}
 }

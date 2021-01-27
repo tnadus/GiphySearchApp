@@ -20,6 +20,7 @@ protocol GiphySearchListViewProtocol: class {
 protocol GiphySearchListPresenterProtocol: class {
 	func start()
 	func search(term: String?)
+	func selectItem(giphy: Giphy, img: UIImage)
 	func handleCancelButtonAction()
 	func fetchImage(urlString: String,
 					giphyId: String,
@@ -29,7 +30,7 @@ protocol GiphySearchListPresenterProtocol: class {
 }
 
 protocol GiphySearchListNavigatorProtocol {
-	var onDetailScreen: (() -> Void)? { get set }
+	var onDetailScreen: ((GiphyDetail) -> Void)? { get set }
 }
 
 class GiphySearchListPresenter: GiphySearchListNavigatorProtocol {
@@ -53,7 +54,7 @@ class GiphySearchListPresenter: GiphySearchListNavigatorProtocol {
 
 	
 	//navigation
-	var onDetailScreen: (() -> Void)?
+	var onDetailScreen: ((GiphyDetail) -> Void)?
 	
 	public init(giphyAPIClient: GiphyAPIClientProtocol = GiphyAPIClient()) {
 		self.giphyAPIClient = giphyAPIClient
@@ -67,6 +68,15 @@ class GiphySearchListPresenter: GiphySearchListNavigatorProtocol {
 
 //MARK: GiphySearchListPresenterProtocol
 extension GiphySearchListPresenter: GiphySearchListPresenterProtocol {
+	
+	func selectItem(giphy: Giphy,
+					img: UIImage) {
+		let giphyDetail = GiphyDetail(title: giphy.title,
+									  width: giphy.images.originalStill.width,
+									  height: giphy.images.originalStill.height,
+									  image: img)
+		onDetailScreen?(giphyDetail)
+	}
 	
 	func onReceivedMemoryWarning() {
 		managedView?.clearCache()

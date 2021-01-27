@@ -25,6 +25,7 @@ class GiphyDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 		presenter.managedView = self
+		presenter.start()
     }
 }
 

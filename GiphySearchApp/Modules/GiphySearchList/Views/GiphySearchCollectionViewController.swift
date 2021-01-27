@@ -140,3 +140,15 @@ extension GiphySearchListViewController: UICollectionViewDelegateFlowLayout {
 		return CGSize(width: (self.view.frame.width/2.0 - 16), height: 90.0)
 	}
 }
+
+//MARK: - UICollectionViewDelegate
+extension GiphySearchListViewController: UICollectionViewDelegate {
+	
+	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+		let giphy = giphys[indexPath.row]
+		if let cell = collectionView.cellForItem(at: indexPath) as? GiphySearchCollectionCell,
+		   let img = cell.imgViewGif.image {
+			presenter.selectItem(giphy: giphy, img: img)
+		}
+	}
+}

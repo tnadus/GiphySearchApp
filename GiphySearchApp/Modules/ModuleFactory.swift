@@ -24,11 +24,11 @@ class ModuleFactory {
 		return (vc, presenter)
 	}
 	
-	func makeGiphyDetailModule() -> (GiphyDetailViewController, GiphyDetailPresenter) {
+	func makeGiphyDetailModule(giphyDetail: GiphyDetail) -> (GiphyDetailViewController, GiphyDetailPresenter) {
 		
 		let vc = UIStoryboard(name: Constants.mainBundle, bundle: nil).instantiateViewController(identifier: Constants.giphyDetailId) as GiphyDetailViewController
-		let presenter = GiphyDetailPresenter(giphyDetail: GiphyDetail(title: "", width: "", height: "", image: UIImage()))
-		//vc.presenter = presenter
+		let presenter = GiphyDetailPresenter(giphyDetail: giphyDetail)
+		vc.presenter = presenter
 		return (vc, presenter)
 	}
 	
