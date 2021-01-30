@@ -52,6 +52,7 @@
 		6357A18125C1E270006FDCD3 /* NetworkServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6357A18025C1E270006FDCD3 /* NetworkServiceTests.swift */; };
 		6357A18E25C1E8BC006FDCD3 /* ParserMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6357A18D25C1E8BC006FDCD3 /* ParserMock.swift */; };
 		6357A19625C1E923006FDCD3 /* URLSessionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6357A19525C1E923006FDCD3 /* URLSessionMock.swift */; };
+		6357A1A225C2DB67006FDCD3 /* GiphyAPIClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6357A1A125C2DB67006FDCD3 /* GiphyAPIClientTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,6 +124,7 @@
 		6357A18025C1E270006FDCD3 /* NetworkServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceTests.swift; sourceTree = "<group>"; };
 		6357A18D25C1E8BC006FDCD3 /* ParserMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParserMock.swift; sourceTree = "<group>"; };
 		6357A19525C1E923006FDCD3 /* URLSessionMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionMock.swift; sourceTree = "<group>"; };
+		6357A1A125C2DB67006FDCD3 /* GiphyAPIClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiphyAPIClientTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -427,6 +429,7 @@
 			isa = PBXGroup;
 			children = (
 				6357A18025C1E270006FDCD3 /* NetworkServiceTests.swift */,
+				6357A1A125C2DB67006FDCD3 /* GiphyAPIClientTests.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -603,6 +606,7 @@
 				6357A15225C1D5D4006FDCD3 /* ModuleFactoryTests.swift in Sources */,
 				6357A16325C1D766006FDCD3 /* FlowGiphySearchTests.swift in Sources */,
 				6357A17B25C1DC19006FDCD3 /* ImageParserTests.swift in Sources */,
+				6357A1A225C2DB67006FDCD3 /* GiphyAPIClientTests.swift in Sources */,
 				6357A18E25C1E8BC006FDCD3 /* ParserMock.swift in Sources */,
 				6357A19625C1E923006FDCD3 /* URLSessionMock.swift in Sources */,
 				6357A13E25C1D170006FDCD3 /* GiphyDetailMock.swift in Sources */,

@@ -70,12 +70,20 @@ class GiphyAPIClient: GiphyAPIClientProtocol {
 		}
 	}
 	
+	//private vars
+	private let urlSession: URLSession
+	
+	//public types
 	public enum Rating: String {
 		case g, pg, pg13, r
 	}
 	
 	public enum lang: String {
 		case en, es, de, it, tr
+	}
+	
+	public init(urlSession: URLSession = URLSession.shared) {
+		self.urlSession = urlSession
 	}
 	
 	/// Making a network search on giphy API
@@ -108,7 +116,7 @@ class GiphyAPIClient: GiphyAPIClientProtocol {
 			return
 		}
 		
-		let networkService = NetworkService<JsonParser<GiphyResponse>>()
+		let networkService = NetworkService<JsonParser<GiphyResponse>>(urlSession: urlSession)
 		networkService.dispatch(urlRequest: urlRequest, parser: parser) { (result) in
 			switch result {
 			case .success(let giphyResponse):
@@ -131,7 +139,7 @@ class GiphyAPIClient: GiphyAPIClientProtocol {
 		let request = GiphyImageRequest()
 		guard let urlRequest = request.buildURLRequest(baseURL: urlString) else { return onCompletion(.failure(.formatError))}
 		
-		let networkService = NetworkService<ImageParser>()
+		let networkService = NetworkService<ImageParser>(urlSession: urlSession)
 		networkService.dispatch(urlRequest: urlRequest, parser: parser) { (result) in
 			switch result {
 			case .success(let img):
