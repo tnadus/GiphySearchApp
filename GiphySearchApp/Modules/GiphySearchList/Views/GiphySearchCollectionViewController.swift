@@ -177,8 +177,8 @@ extension GiphySearchListViewController: UICollectionViewDelegate {
 extension GiphySearchListViewController: GiphySearchCollectionLayoutDelegate {
 	
 	func collectionView(_ collectionView: UICollectionView, heightForItemAt indexPath: IndexPath, with width: CGFloat) -> CGFloat {
-		let imgWidthStr = giphys[indexPath.row].images.originalStill.width
-		let imgHeightStr = giphys[indexPath.row].images.originalStill.height
+		let imgWidthStr = giphys[indexPath.row].images.original.width
+		let imgHeightStr = giphys[indexPath.row].images.original.height
 		
 		let imgWidth = CGFloat((imgWidthStr as NSString).floatValue)
 		let imgHeight = CGFloat((imgHeightStr as NSString).floatValue)

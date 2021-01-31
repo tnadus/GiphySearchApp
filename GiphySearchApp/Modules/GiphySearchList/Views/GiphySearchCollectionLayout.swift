@@ -28,6 +28,7 @@ public class GiphySearchCollectionLayout: UICollectionViewLayout {
 	}
 	
 	func clearCache() {
+		contentHeight = 0.0
 		cache.removeAll()
 	}
 	
