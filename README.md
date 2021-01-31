@@ -16,12 +16,15 @@ Since the project is an implementation of basic task,
 this project is not using any 3rd party libraries, so to run the app, it's enough
 to hit the build button.
 
-### Nice to have features
-- Animating the gif image missing
-- Pagination is missing
-
+### Added missed tasks
+- images have real images sizes in search list
+- pinterest style collection view layout is used
+- thumbnail gif images are used for seachlist, original gif image is used for the detailed screen
+- live search capability is added
 
 ### Notes
 This project is nice example of how to implement testable code with using
 SOLID princibles and a good abstraction between different architectural layers
 
+- First implementation took 6-7 hours and the refinement tooke 2 hours
+- I think, all the tests are important, but the business logic tests (these are the presenter tests in the project) are the most vital ones.
