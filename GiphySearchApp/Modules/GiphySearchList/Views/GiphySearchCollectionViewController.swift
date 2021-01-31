@@ -31,6 +31,8 @@ class GiphySearchListViewController: UIViewController {
 		
     override func viewDidLoad() {
         super.viewDidLoad()
+		
+		(self.collectionView.collectionViewLayout as? GiphySearchCollectionLayout)?.delegate = self
 		presenter.managedView = self
 		presenter.start()
     }
@@ -97,6 +99,7 @@ extension GiphySearchListViewController: GiphySearchListViewProtocol {
 	/// Load and show the giphy objects given
 	/// - Parameter giphys: given giphy object
 	func updateView(giphys: [Giphy]) {
+		(collectionView.collectionViewLayout as? GiphySearchCollectionLayout)?.clearCache()
 		self.giphys = giphys
 		collectionView.reloadData()
 		DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
@@ -158,14 +161,6 @@ extension GiphySearchListViewController: UICollectionViewDataSourcePrefetching {
 	}
 }
 
-//MARK: - UIViewCollectionFlowLayoutDelegate
-extension GiphySearchListViewController: UICollectionViewDelegateFlowLayout {
-	
-	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-		return CGSize(width: (self.view.frame.width/2.0 - Constants.cell.paddingBetweenCells), height: Constants.cell.width)
-	}
-}
-
 //MARK: - UICollectionViewDelegate
 extension GiphySearchListViewController: UICollectionViewDelegate {
 	
@@ -175,5 +170,20 @@ extension GiphySearchListViewController: UICollectionViewDelegate {
 		   let img = cell.imgViewGif.image {
 			presenter.selectItem(giphy: giphy, img: img)
 		}
+	}
+}
+
+//MARK: - GiphySearchCollectionLayoutDelegate
+extension GiphySearchListViewController: GiphySearchCollectionLayoutDelegate {
+	
+	func collectionView(_ collectionView: UICollectionView, heightForItemAt indexPath: IndexPath, with width: CGFloat) -> CGFloat {
+		let imgWidthStr = giphys[indexPath.row].images.originalStill.width
+		let imgHeightStr = giphys[indexPath.row].images.originalStill.height
+		
+		let imgWidth = CGFloat((imgWidthStr as NSString).floatValue)
+		let imgHeight = CGFloat((imgHeightStr as NSString).floatValue)
+		
+		let ratio = CGFloat(width/imgWidth)
+		return ratio * imgHeight
 	}
 }

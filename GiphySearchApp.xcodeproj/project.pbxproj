@@ -53,6 +53,7 @@
 		6357A18E25C1E8BC006FDCD3 /* ParserMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6357A18D25C1E8BC006FDCD3 /* ParserMock.swift */; };
 		6357A19625C1E923006FDCD3 /* URLSessionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6357A19525C1E923006FDCD3 /* URLSessionMock.swift */; };
 		6357A1A225C2DB67006FDCD3 /* GiphyAPIClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6357A1A125C2DB67006FDCD3 /* GiphyAPIClientTests.swift */; };
+		637DEBE225C581AB006A410C /* GiphySearchCollectionLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637DEBE125C581AB006A410C /* GiphySearchCollectionLayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -125,6 +126,7 @@
 		6357A18D25C1E8BC006FDCD3 /* ParserMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParserMock.swift; sourceTree = "<group>"; };
 		6357A19525C1E923006FDCD3 /* URLSessionMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionMock.swift; sourceTree = "<group>"; };
 		6357A1A125C2DB67006FDCD3 /* GiphyAPIClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiphyAPIClientTests.swift; sourceTree = "<group>"; };
+		637DEBE125C581AB006A410C /* GiphySearchCollectionLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiphySearchCollectionLayout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -234,6 +236,7 @@
 			children = (
 				6357A03225C0BEDF006FDCD3 /* GiphySearchCollectionViewController.swift */,
 				6357A03725C0C3A9006FDCD3 /* GiphySearchCollectionCell.swift */,
+				637DEBE125C581AB006A410C /* GiphySearchCollectionLayout.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -578,6 +581,7 @@
 				6357A0B025C0FBD9006FDCD3 /* GiphyResponse.swift in Sources */,
 				6357A05425C0D5F2006FDCD3 /* FlowFactory.swift in Sources */,
 				6357A03E25C0D413006FDCD3 /* ModuleFactory.swift in Sources */,
+				637DEBE225C581AB006A410C /* GiphySearchCollectionLayout.swift in Sources */,
 				6357A03325C0BEDF006FDCD3 /* GiphySearchCollectionViewController.swift in Sources */,
 				6357A04925C0D4C0006FDCD3 /* GiphySearchListPresenter.swift in Sources */,
 				63579FFC25C0BD2C006FDCD3 /* SceneDelegate.swift in Sources */,
