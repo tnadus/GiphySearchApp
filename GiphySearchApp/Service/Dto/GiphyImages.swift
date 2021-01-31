@@ -9,9 +9,11 @@ import Foundation
 
 /// Nested class for search request response object
 struct GiphyImages: Decodable {
-	let originalStill: GiphyOriginalStill
+	let original: GiphyImage
+	let previewGif: GiphyImage
 	
 	enum CodingKeys: String, CodingKey {
-		case originalStill = "original_still"
+		case original = "original"
+		case previewGif = "preview_gif"
 	}
 }

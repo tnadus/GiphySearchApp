@@ -13,8 +13,9 @@ class ImageParserTests: XCTestCase {
 	func testParseShouldReturnImageWhenParseIsSuccessful() {
 		
 		let sut = ImageParser()
-		let img = UIImage(systemName: "circle")!
-		let data = img.jpegData(compressionQuality: 0)!
+		let path = Bundle(for: ImageParserTests.self).path(forResource: "test", ofType: "gif")
+		let url = URL(fileURLWithPath: path!)
+		let data = try! Data(contentsOf: url)
 		
 		let expect = expectation(description: "parsing")
 		sut.parse(data: data) { result in

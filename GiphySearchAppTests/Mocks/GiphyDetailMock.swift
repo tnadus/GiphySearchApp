@@ -13,6 +13,6 @@ struct GiphyDetailMock {
 		return GiphyDetail(title: "mock-title",
 						   width: "mock-width",
 						   height: "mock-height",
-						   image: UIImage(systemName: "circle")!)
+						   imageURLString: "mock-url")
 	}
 }

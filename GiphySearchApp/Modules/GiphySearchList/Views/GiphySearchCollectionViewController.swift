@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftyGif
 
 /// Shows the Giphy Search List screen
 class GiphySearchListViewController: UIViewController {
@@ -45,9 +46,15 @@ class GiphySearchListViewController: UIViewController {
 // MARK: UISearchBarDelegate
 extension GiphySearchListViewController: UISearchBarDelegate {
 	
-	/// handles search action
+	/// handles search action button - done
 	/// - Parameter searchBar: searchBar itself
 	func searchBarSearchButtonClicked(_ searchBar: UISearchBar)  {
+		self.searchBar.resignFirstResponder()
+	}
+	
+	/// handles search action
+	/// - Parameter searchBar: searchBar itself
+	@objc func searchBarSearchAction(_ searchBar: UISearchBar)  {
 		presenter.search(term: searchBar.text)
 	}
 	
@@ -59,6 +66,9 @@ extension GiphySearchListViewController: UISearchBarDelegate {
 		if searchText.isEmpty {
 			presenter.handleCancelButtonAction()
 		}
+		let selector = #selector(GiphySearchListViewController.searchBarSearchAction)
+		NSObject.cancelPreviousPerformRequests(withTarget: self, selector: selector, object: searchBar)
+		self.perform(selector, with: searchBar, afterDelay: 0.75)
 	}
 }
 
@@ -76,13 +86,11 @@ extension GiphySearchListViewController: GiphySearchListViewProtocol {
 	
 	/// Shows the spinner
 	func showSpinner() {
-		view.isUserInteractionEnabled = false
 		spinner.startAnimating()
 	}
 	
 	/// Hides the spinner
 	func hideSpinner() {
-		view.isUserInteractionEnabled = true
 		spinner.stopAnimating()
 	}
 	
@@ -102,9 +110,6 @@ extension GiphySearchListViewController: GiphySearchListViewProtocol {
 		(collectionView.collectionViewLayout as? GiphySearchCollectionLayout)?.clearCache()
 		self.giphys = giphys
 		collectionView.reloadData()
-		DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-			self.searchBar.resignFirstResponder()
-		}
 	}
 	
 	/// Clears cahce
@@ -130,7 +135,7 @@ extension GiphySearchListViewController: UICollectionViewDataSource {
 		let giphy = giphys[indexPath.row]
 		cell.representedIdentifier = giphy.id
 		if let img = cacheImages.object(forKey: giphy.id as NSString) {
-			cell.imgViewGif.image = img
+			cell.imgViewGif.setGifImage(img, loopCount: -1)
 		} else {
 			handleEmptyImageCell(cell, giphy: giphy)
 		}
@@ -140,9 +145,11 @@ extension GiphySearchListViewController: UICollectionViewDataSource {
 	func handleEmptyImageCell(_ cell: GiphySearchCollectionCell,
 							  giphy: Giphy) {
 		cell.updateImgWithPlaceholder()
-		presenter.fetchImage(urlString: giphy.images.originalStill.url, giphyId: giphy.id) { img in
+		presenter.fetchImage(urlString: giphy.images.previewGif.url, giphyId: giphy.id) { img in
 			if cell.representedIdentifier == giphy.id {
-				cell.imgViewGif.image = img
+				if let img = img {
+					cell.imgViewGif.setGifImage(img, loopCount: -1)
+				}
 			}
 		}
 	}
@@ -155,7 +162,7 @@ extension GiphySearchListViewController: UICollectionViewDataSourcePrefetching {
 		for indexPath in indexPaths {
 			let giphy = giphys[indexPath.row]
 			if (cacheImages.object(forKey: giphy.id as NSString) == nil) {
-				presenter.fetchImage(urlString: giphy.images.originalStill.url, giphyId: giphy.id, onCompletion: nil)
+				presenter.fetchImage(urlString: giphy.images.previewGif.url, giphyId: giphy.id, onCompletion: nil)
 			}
 		}
 	}
