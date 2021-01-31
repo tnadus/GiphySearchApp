@@ -53,7 +53,11 @@ class GiphyAPIClientTests: XCTestCase {
 	
 	func testFetchImageShouldReturnImageWhenItsSuccessful() {
 		
-		urlSession.data = UIImage(systemName: "circle")?.jpegData(compressionQuality: 0.1)
+		let path = Bundle(for: GiphyAPIClientTests.self).path(forResource: "test", ofType: "gif")
+		let url = URL(fileURLWithPath: path!)
+		let data = try! Data(contentsOf: url)
+		
+		urlSession.data = data
 		urlSession.response = HTTPURLResponse(url: URL(string: urlString)!, statusCode: 200, httpVersion: nil, headerFields: nil)
 		
 		let expect = expectation(description: "fetchImage")

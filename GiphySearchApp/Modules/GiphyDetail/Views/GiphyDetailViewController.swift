@@ -50,6 +50,8 @@ extension GiphyDetailViewController: GiphyDetailViewProtocol {
 		self.widthValueLabel.text = giphyDetail.width
 		self.heightValueLabel.text = giphyDetail.height
 		
-		self.imgViewFullScreen.image = giphyDetail.image
+		if let url = URL(string: giphyDetail.imageURLString) {
+			self.imgViewFullScreen.setGifFromURL(url)
+		}
 	}
 }

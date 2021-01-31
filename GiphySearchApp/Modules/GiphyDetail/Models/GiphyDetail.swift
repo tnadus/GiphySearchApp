@@ -12,5 +12,5 @@ struct GiphyDetail {
 	let title: String
 	let width: String
 	let height: String
-	let image: UIImage
+	let imageURLString: String
 }

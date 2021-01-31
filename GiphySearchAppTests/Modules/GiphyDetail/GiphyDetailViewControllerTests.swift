@@ -38,7 +38,6 @@ class GiphyDetailViewControllerTests: XCTestCase {
 		XCTAssertEqual(sut.widthValueLabel.text, giphyDetail.width)
 		XCTAssertEqual(sut.heightLabel.text, heightLabel)
 		XCTAssertEqual(sut.heightValueLabel.text, giphyDetail.height)
-		XCTAssertNotNil(sut.imgViewFullScreen.image)
 	}
 	
 }

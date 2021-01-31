@@ -8,7 +8,7 @@
 import UIKit
 
 /// Nested class for search request response object
-struct GiphyOriginalStill: Decodable {
+struct GiphyImage: Decodable {
 	let height: String
 	let width: String
 	let url: String

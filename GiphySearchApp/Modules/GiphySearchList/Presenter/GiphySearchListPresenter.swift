@@ -83,9 +83,9 @@ extension GiphySearchListPresenter: GiphySearchListPresenterProtocol {
 	func selectItem(giphy: Giphy,
 					img: UIImage) {
 		let giphyDetail = GiphyDetail(title: giphy.title,
-									  width: giphy.images.originalStill.width,
-									  height: giphy.images.originalStill.height,
-									  image: img)
+									  width: giphy.images.original.width,
+									  height: giphy.images.original.height,
+									  imageURLString: giphy.images.original.url)
 		onDetailScreen?(giphyDetail)
 	}
 	

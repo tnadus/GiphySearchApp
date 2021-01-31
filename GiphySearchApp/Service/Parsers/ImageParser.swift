@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftyGif
 
 /// Parses data into UIImage
 struct ImageParser: ParserProtocol {
@@ -19,7 +20,7 @@ struct ImageParser: ParserProtocol {
 	///   - onCompletion: called on completion of parsing
 	func parse(data: Data,
 			   onCompletion: @escaping ParserCompletion) {
-		if let img = UIImage(data: data) {
+		if let img = try? UIImage(gifData: data) {
 			onCompletion(.success(img))
 			return
 		}
