@@ -16,6 +16,10 @@ Since the project is an implementation of basic task,
 this project is not using any 3rd party libraries, so to run the app, it's enough
 to hit the build button.
 
+[Update:] 
+With the refinement, a 3rd party library named SwiftyGif is added to the project
+to handle animated gif images and swift package manager is used to dependency manager tool.
+
 ### Added missed tasks
 - images have real images sizes in search list
 - pinterest style collection view layout is used
